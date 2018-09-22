@@ -1,0 +1,43 @@
+metaDataFormat: yaml
+hasCJKLanguage: true
+title: MyCAD
+baseURL: "https://mycad.github.io/"
+paginate: 20
+permalinks:
+    post: /:year/:month/:day/:filename
+    
+menu:
+  main:
+  - name: 机型
+    url: /acmodel/
+    pre: tags
+    weight: 1
+  - name: 颁发单位
+    url: /issuedby/
+    pre: th-list
+    weight: 2
+  - name: 总清单
+    url: /archive/
+    pre: archive
+    weight: 3
+  - name: 关于
+    url: /about/
+    pre: heart
+    weight: 4
+
+taxonomies:
+  category: categories
+  tag: tags
+
+params:
+    site_description: 本站搜集了CAAC发布的所有cad
+    footer_description: 欢迎指出本站的内容错误！
+    baidu_tongji_id: 4cc3fd6dcaf01a5a6244f36c72ccace8 
+    github_username: mycad
+    email: 56649783@qq.com
+    #weibo_username: 
+    #zhihu_username: 
+    #linkedIn_username: 
+    #dribbble_username:
+    #twitter_username: 
+    #facebook_username: 

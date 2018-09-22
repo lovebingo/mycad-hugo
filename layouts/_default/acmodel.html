@@ -1,0 +1,44 @@
+{{- define "main" }}
+<div class="page clearfix">
+    <div class="left">
+    <h1>{{.Title}}</h1>
+    <hr>
+    <ul>
+        {{- range $name, $taxonomy := .Site.Taxonomies.tags }}
+           <h2 id="{{ $name }}">{{ $name | upper}}</h2>
+            {{- range $key, $value := $taxonomy }}
+                <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
+                    {{- if (index $.Site.Data .Params.amendno).new }}
+                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] {{.Params.cadno}} {{ .Title }}</a></s>
+                    {{- else}}
+                    <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] {{.Params.cadno}} {{ .Title }}</a>
+                    {{- end }}
+                    <span class="pageTag">
+                    <i class="fa fa-book"></i><a href="{{ .Params.pdfurl }}" target="_blank">PDF</a>
+                    </span>
+               </li>
+            {{- end }}
+         {{- end }}
+    </ul>
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right" >
+        <div class="wrap">
+            <!-- Content -->
+            <div class="side content">
+                <div>{{.Title}}统计</div>
+                <ul id="content-side" class="content-ul">
+                 {{- range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        {{- with $.Site.GetPage (printf "/tags/%s" $name) }}
+                            <li><a data-scroll href="#{{ $name }}">{{ $name | upper}} ({{len $taxonomy}})</a></li>
+                        {{- end }}
+                 {{- end }}
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+{{- end }}
+

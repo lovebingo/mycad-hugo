@@ -1,0 +1,66 @@
+{{- define "main" }}
+<!-- <small>这里搜集了历史上CAAC发布的所有CAD</small> -->
+<div class="page clearfix" index>
+    <div class="left">
+        <h1>{{.Title}}</h1>
+        <hr>
+        <ul>
+           {{ range .Paginator.Pages }}
+              <li>
+                <h2>{{- if (index .Site.Data .Params.amendno).new }}
+                    <s><a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{ .Title }}</a></s>
+                    {{- else}}
+                    <a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{ .Title }}</a>
+                    {{- end }}
+                </h2>
+                <div class="label">
+                    <div class="label-card"><i class="fa fa-calendar"></i>发布 {{ .Date.Format "2006-01-02" }}</div>
+                    <div class="label-card"><i class="fa fa-calendar"></i>生效 {{ .Params.effdate }}</div>
+                    <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
+                    <span class="pageTag">
+                    <i class="fa fa-tags"></i><a href="acmodel/#{{.Params.tags | lower}}" rel="tag">{{.Params.tags}}</a>
+                    </span>
+                    <span class="categories">
+                    <i class="fa fa-th-list"></i><a href="issuedby/#{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a>
+                    </span>
+                    <span class="pageTag">
+                    <i class="fa fa-book"></i><a href="{{ .Params.pdfurl }}" target="_blank">PDF</a>
+                    </span>
+                </div>
+                <div class="excerpt">
+                    {{- .Content | markdownify}}
+                </div>
+                <div class="read-all">
+                    <a  href="{{ .Permalink }}"><i class="fa fa-newspaper-o"></i>详细内容</a>
+                </div>
+                <hr>
+              </li>
+            {{- end }}
+        </ul>
+        <!-- Pagination links -->
+        {{- partial "pagination.html" . }}
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right" >
+        <div class="wrap">
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                 最近7天
+                </div>
+                <ul id="content-side" class="content-ul">
+                {{- range where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -7) }}
+                  {{- if (index .Site.Data .Params.amendno).new }}
+                    <s><li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{.Params.cadno}}</br>{{ .Title }}</a></li></s>
+                    {{- else}}
+                    <li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{ .Title }}</a></li>
+                    {{- end }}
+                {{- end }}
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+{{- end }}

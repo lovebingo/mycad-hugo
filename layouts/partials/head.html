@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- if .IsHome }}
+<meta name="description" content="{{ .Site.Params.site_description }}">
+<title>{{- .Site.Title }}</title>
+{{- else }}
+<meta name="description" content="{{ .Description }}">
+<title>{{- .Title }}</title>
+{{- end }}
+{{- with .RSSLink }}<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ . }}">{{- end }}
+<link rel="shortcut icon" href="/img/favicon.ico?" type="image/x-icon">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+<link rel="canonical" href="{{ .Permalink }}">
+<link href="{{ .Site.BaseURL }}css/main.css" rel="stylesheet">
+{{- partial "tongji.html" . }}

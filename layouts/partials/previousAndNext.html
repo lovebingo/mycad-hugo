@@ -1,0 +1,12 @@
+<div class="post-recent">
+    <div class="pre">
+        {{- if .Prev }}
+        <p><strong>上一个</strong> <a href="{{.Site.BaseURL}}{{ .Prev.URL }}">[{{ .Prev.Params.amendno }}] [{{ .Prev.Params.cadno }}] {{ .Prev.Params.title }}</a></p>
+        {{- end }}
+    </div>
+    <div class="nex">
+        {{- if .Next }}
+        <p><strong>下一个</strong> <a href="{{.Site.BaseURL}}{{ .Next.URL }}">[{{ .Next.Params.amendno }}] [{{ .Next.Params.cadno }}] {{ .Next.Params.title }}</a></p>
+        {{- end }}
+    </div>
+</div>

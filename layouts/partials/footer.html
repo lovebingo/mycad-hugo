@@ -1,0 +1,37 @@
+<footer class="site-footer">
+    <div class="wrapper">
+        <p class="description">
+            {{- if .Site.Params.footer_description }} {{.Site.Params.footer_description}} {{- end }}
+        </p>
+        <p class="contact">
+            请联系我:
+            {{- if .Site.Params.github_username }}
+            <a href="https://github.com/{{.Site.Params.github_username}}" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
+            {{- end }} 
+            {{- if .Site.Params.email }}<a href="mailto:{{.Site.Params.email}}" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> 
+            {{- end }}
+            {{- if .Site.Params.weibo_username }}
+            <a href="http://weibo.com/{{.Site.Params.weibo_username}}" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a> 
+            {{- end }} 
+            {{- if .Site.Params.zhihu_username }}
+            <a href="https://www.zhihu.com/people/{{.Site.Params.zhihu_username}}" title="Zhihu"><i class="iconfont icon-daoruzhihu"></i></a> 
+            {{- end }} 
+            {{- if .Site.Params.twitter_username }}
+            <a href="https://twitter.com/{{.Site.Params.twitter_username}}" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a> {{- end }}
+            {{- if .Site.Params.facebook_username }}
+            <a href="https://www.facebook.com/{{.Site.Params.facebook_username}}" title="Facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> 
+            {{- end }}  
+            {{- if .Site.Params.linkedIn_username }}
+            <a href="https://www.linkedin.com/in/{{.Site.Params.linkedIn_username}}" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            {{- end }}
+            {{- if .Site.Params.dribbble_username }}
+            <a href=" https://dribbble.com/{{.Site.Params.dribbble_username}}" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a> 
+            {{- end }}
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+    </div>
+</footer>
+<!-- 卜算子统计 -->
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>

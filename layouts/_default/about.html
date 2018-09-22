@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="page clearfix" post>
+    <div class="left">
+        {{.Content}}
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+     <div class="wrap">
+            <!-- Content -->
+            <div class="side content">
+                {{ .TableOfContents }}
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+      </div>
+    </div>
+</div>
+{{ end }}
