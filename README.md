@@ -20,13 +20,17 @@ tags: A332
 categories: 民航中南地区管理局适航审定处
 author: 朱江
 ---
+```
 
 在data文件夹中, 按需添加新旧CAD的代替信息。
 如：39-6517.json
-{
-"new": ["39-0000", "39-0001"]
-}
 
+```bash
+{
+"new": ["39-0000", "39-0001"],
+"old": ["39-0000", "39-0001"]
+}
+```
 
 关于打赏
 ====================================
@@ -38,4 +42,4 @@ author: 朱江
 
 ## License
 
-[MIT License](https://github.com/mycad/mycad-hugo.github.io/blob/master/LICENSE.md)
+[MIT License](https://github.com/mycad/mycad-hugo/blob/master/LICENSE.md)
