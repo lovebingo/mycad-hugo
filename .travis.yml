@@ -5,4 +5,13 @@ install:
     - sudo dpkg -i hugo*.deb
     - hugo version
 
-script: hugo 
+script: hugo
+
+after_success:
+    - cd public
+    - git init
+    - git config user.name "mycad"
+    - git config user.email "3594545056@qq.com"
+    - git add .
+    - git commit -m "Update docs"
+    - git push -f https://$GITHUB_TOKEN@github.com/mycad/mycad.github.io.git master
