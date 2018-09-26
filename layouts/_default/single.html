@@ -2,26 +2,22 @@
 <div class="page clearfix" post>
     <div class="left">
        {{- if (index .Site.Data .Params.amendno).new }}
-        <s><h1>[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{.Title}}</h1></s>
+        <s><h2>[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{.Title}}</h2></s>
         {{- else}}
-        <h1>[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{.Title}}</h1>
+        <h2>[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{.Title}}</h2>
         {{- end }}
         <div class="label">
             <div class="label-card"><i class="fa fa-calendar"></i>发布 {{ .Date.Format "2006-01-02" }}</div>
             <div class="label-card"><i class="fa fa-calendar"></i>生效 {{ .Params.effdate }}</div>
+            <div class="label-card"><i class="fa fa-tags"></i><a href="acmodel/#{{.Params.tags | lower}}" rel="tag">{{.Params.tags}}</a></div>
+            <div class="label-card"><i class="fa fa-th-list"></i><a href="issuedby/#{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a></div>
             <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
-            <span class="pageTag">
-            <i class="fa fa-tags"></i><a href="acmodel/#{{.Params.tags | lower}}" rel="tag">{{.Params.tags}}</a>
-            </span>
-            <span class="categories">
-            <i class="fa fa-th-list"></i><a href="issuedby/#{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a>
-            </span>
-            <span class="pageTag">
-            <i class="fa fa-book"></i><a href="{{ .Params.pdfurl }}" target="_blank">PDF</a>
-            </span>
+            <div class="label-card"><i class="fa fa-book"></i><a href="https://github.com/mycad/mycad-hugo/blob/master/{{ .File.TranslationBaseName }}.pdf" target="_blank">PDF</a></div>
          </div>
         <hr>
         {{.Content}}
+        <hr>
+        {{- partial "previousAndNext.html" . }}
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
     <div class="right">

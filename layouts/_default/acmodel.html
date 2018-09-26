@@ -9,13 +9,10 @@
             {{- range $key, $value := $taxonomy }}
                 <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
                     {{- if (index $.Site.Data .Params.amendno).new }}
-                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] {{.Params.cadno}} {{ .Title }}</a></s>
+                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a></s>
                     {{- else}}
-                    <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] {{.Params.cadno}} {{ .Title }}</a>
+                    <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a>
                     {{- end }}
-                    <span class="pageTag">
-                    <i class="fa fa-book"></i><a href="{{ .Params.pdfurl }}" target="_blank">PDF</a>
-                    </span>
                </li>
             {{- end }}
          {{- end }}

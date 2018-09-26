@@ -16,19 +16,12 @@
                 <div class="label">
                     <div class="label-card"><i class="fa fa-calendar"></i>发布 {{ .Date.Format "2006-01-02" }}</div>
                     <div class="label-card"><i class="fa fa-calendar"></i>生效 {{ .Params.effdate }}</div>
+                    <div class="label-card"><i class="fa fa-tags"></i><a href="acmodel/#{{.Params.tags | lower}}" rel="tag">{{.Params.tags}}</a></div>
+                    <div class="label-card"><i class="fa fa-th-list"></i><a href="issuedby/#{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a></div>
                     <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
-                    <span class="pageTag">
-                    <i class="fa fa-tags"></i><a href="acmodel/#{{.Params.tags | lower}}" rel="tag">{{.Params.tags}}</a>
-                    </span>
-                    <span class="categories">
-                    <i class="fa fa-th-list"></i><a href="issuedby/#{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a>
-                    </span>
-                    <span class="pageTag">
-                    <i class="fa fa-book"></i><a href="{{ .Params.pdfurl }}" target="_blank">PDF</a>
-                    </span>
                 </div>
                 <div class="excerpt">
-                    {{- .Content | markdownify}}
+                    {{- .Summary }}
                 </div>
                 <div class="read-all">
                     <a  href="{{ .Permalink }}"><i class="fa fa-newspaper-o"></i>详细内容</a>
@@ -45,6 +38,7 @@
         <div class="wrap">
             <!-- Content -->
             <div class="side content">
+                <div>最近更新:{{now.Format "2006-01-02"}}</div>
                 <div>
                  最近7天
                 </div>
