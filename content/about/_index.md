@@ -2,7 +2,7 @@
 title: 关于
 layout: about
 ---
-## 关于我
+# 关于我
 
 致力于用IT服务于工作，减轻工作负担，提高工作效率！
 
@@ -13,18 +13,19 @@ layout: about
 * 2007.7 入职鲲鹏航空有限公司--航线机械员
 * 2003.7 入职深圳富士康集团CPBG事业群PCB事业处--检测工程师
 
-## 关于本站
+# 关于本站
 
 ~欢迎使用~
 
-欢迎大家提一些对本站建议，CAD内容是从PDF文档中提取处理的，有错误的地方，可以发邮件给我或者新建一个 [Issue](https://github.com/mycad/mycad.github.io/issues)。
+欢迎大家提一些对本站建议，CAD内容是从PDF文档中提取处理的，有错误的地方，可以发邮件给我或者新建一个 [Issue](https://github.com/mycad/mycad-hugo/issues)。
 
-## 联系我
+# 联系我
 
-* GitHub：[hks2002](https://github.com/hks2002)
+如果需要Excel整理文件可以通过以下方式联系我:
 * Email：56649783@qq.com
+* GitHub：[hks2002](https://github.com/hks2002)
 
-## 点赞我
+# 点赞我
 
 如果你觉得我做的这个网站还不错，给你的工作带来了便利，可以给我点赞！以激励我做出更好的东西。
 ![微信点赞](/img/zanshanma.jpg)
