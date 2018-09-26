@@ -2,7 +2,8 @@ metaDataFormat: yaml
 hasCJKLanguage: true
 title: MyCAD
 baseURL: "https://mycad.github.io/"
-paginate: 20
+paginate: 10
+summaryLength: 200
 permalinks:
     post: /:year/:month/:day/:filename
     
