@@ -12,7 +12,7 @@
             <div class="label-card"><i class="fa fa-tags"></i><a href="acmodel/#{{.Params.tags | lower}}" rel="tag">{{.Params.tags}}</a></div>
             <div class="label-card"><i class="fa fa-th-list"></i><a href="issuedby/#{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a></div>
             <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
-            <div class="label-card"><i class="fa fa-book"></i><a href="https://github.com/mycad/mycad-hugo/blob/master/{{ .File.TranslationBaseName }}.pdf" target="_blank">PDF</a></div>
+            <div class="label-card"><i class="fa fa-book"></i><a href="https://github.com/mycad/mycad-hugo/blob/master/pdf/{{ .File.TranslationBaseName }}.pdf" target="_blank">PDF</a></div>
          </div>
         <hr>
         {{.Content}}
