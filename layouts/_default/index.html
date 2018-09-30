@@ -5,8 +5,8 @@
         <h1>{{.Title}}</h1>
         <hr>
         <ul>
-           {{ range .Paginator.Pages.GroupByDate "2006-01-02"}}
-           {{ range (.Pages.ByParam "amendno").Reverse}}
+           {{- range .Paginator.Pages.GroupByDate "2006-01-02"}}
+           {{- range (.Pages.ByParam "amendno").Reverse}}
               <li>
                 <h2>{{- if (index .Site.Data .Params.amendno).new }}
                     <s><a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{ .Title }}</a></s>

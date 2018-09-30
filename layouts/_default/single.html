@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{- define "main" }}
 <div class="page clearfix" post>
     <div class="left">
        {{- if (index .Site.Data .Params.amendno).new }}
@@ -15,7 +15,7 @@
             <div class="label-card"><i class="fa fa-book"></i><a href="https://github.com/mycad/mycad-hugo/blob/master/pdf/{{ .File.TranslationBaseName }}.pdf" target="_blank">PDF</a></div>
          </div>
         <hr>
-        {{.Content}}
+        {{- .Content}}
         <hr>
         {{- partial "previousAndNext.html" . }}
     </div>
@@ -24,7 +24,7 @@
      <div class="wrap">
             <!-- Content -->
             <div class="side content">
-                {{ .TableOfContents }}
+                {{- .TableOfContents }}
             </div>
             <div class="side content">
                 <div>
@@ -32,14 +32,14 @@
                 </div>
                 <ul id="content-side" class="content-ul">
                     {{- range $index, $oldcad:=(index .Site.Data .Params.amendno).old }}
-                        {{ with $.Site.GetPage (printf "/post/%s.md" $oldcad) }}
+                        {{- with $.Site.GetPage (printf "/post/%s.md" $oldcad) }}
                         <s><li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{.Params.cadno}}</br>{{ .Title }}</a></li></s>
-                        {{ end }}
+                        {{- end }}
                     {{- end }}
                     {{- range $index, $newcad:=(index .Site.Data .Params.amendno).new }}
-                        {{ with $.Site.GetPage (printf "/post/%s.md" $newcad) }}
+                        {{- with $.Site.GetPage (printf "/post/%s.md" $newcad) }}
                         <li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{.Params.cadno}}</br>{{ .Title }}</a></li>
-                        {{ end }}
+                        {{- end }}
                     {{- end }}
                 </ul>
             </div>
@@ -48,4 +48,4 @@
       </div>
     </div>
 </div>
-{{ end }}
+{{- end }}

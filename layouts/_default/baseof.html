@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {{ partial "head.html" . }}
+    {{- partial "head.html" . }}
   </head>
   <body>
-    {{ partial "header.html" . }}
-        {{ block "main" . }}{{ end }}
-    {{ partial "footer.html" . }}
-    {{ partial "backToTop.html" . }}
+    {{- partial "header.html" . }}
+        {{- block "main" . }}{{ end }}
+    {{- partial "footer.html" . }}
+    {{- partial "backToTop.html" . }}
     <script src="{{ .Site.BaseURL }}/js/main.js" charset="utf-8"></script>
     <script src="{{ .Site.BaseURL }}/js/smooth-scroll.min.js" charset="utf-8"></script>
     <script type="text/javascript">
