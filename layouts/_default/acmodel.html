@@ -10,9 +10,9 @@
             {{- range (.Pages.ByParam "amendno").Reverse}}
                 <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
                     {{- if (index $.Site.Data .Params.amendno).new }}
-                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a></s>
+                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] <div style="display:inline-block">{{ .Title }}</div></a></s>
                     {{- else}}
-                    <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a>
+                    <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] <div style="display:inline-block">{{ .Title }}</div></a>
                     {{- end }}
                </li>
             {{- end }}
