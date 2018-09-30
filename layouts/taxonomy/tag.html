@@ -1,12 +1,11 @@
 {{- define "main" }}
 <div class="page clearfix">
     <div class="left">
+    {{- $thistag := lower .Title }}
     <h1>{{.Title}}</h1>
     <hr>
     <ul>
-        {{- range $categoryname, $categoryvaluelist := .Site.Taxonomies.categories }}
-            <a href="categories/{{ $categoryname }}"><h2 id="{{ $categoryname }}">{{ $categoryname }}</h2></a>
-            {{- range $categoryvaluelist.Pages.GroupByDate "2006-01-02" "desc" }}
+        {{- range $tagname, $tagvaluelist := .Site.Taxonomies.tags }}{{ if eq $tagname $thistag }}{{ range $tagvaluelist.Pages.GroupByDate "2006-01-02" "desc" }}
             {{- range (.Pages.ByParam "amendno").Reverse}}
                 <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
                     {{- if (index $.Site.Data .Params.amendno).new }}
@@ -14,10 +13,9 @@
                     {{- else}}
                     <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] <div style="display:inline-block">{{ .Title }}</div></a>
                     {{- end }}
-                </li>
+               </li>
             {{- end }}
-            {{- end }}
-         {{- end }}
+         {{- end }}{{ end }}{{ end }}
     </ul>
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
@@ -25,11 +23,11 @@
         <div class="wrap">
             <!-- Content -->
             <div class="side content">
-                <div>{{.Title}}统计</div>
+                <div>其他</div>
                 <ul id="content-side" class="content-ul">
-                 {{- range $categoryname, $categoryvaluelist := .Site.Taxonomies.categories }}
-                        {{- with $.Site.GetPage (printf "/categories/%s" $categoryname) }}
-                            <li><a data-scroll href="#{{ $categoryname }}">{{ $categoryname | upper}} ({{len $categoryvaluelist}})</a></li>
+                 {{- range $tagname, $tagvaluelist := .Site.Taxonomies.tags }}
+                        {{- with $.Site.GetPage (printf "/tags/%s" $tagname) }}
+                            <li><a data-scroll href="/tags/{{ $tagname }}">{{ $tagname | upper}} ({{len $tagvaluelist}})</a></li>
                         {{- end }}
                  {{- end }}
                 </ul>
@@ -40,4 +38,3 @@
     </div>
 </div>
 {{- end }}
-

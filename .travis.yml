@@ -5,7 +5,7 @@ install:
     - sudo dpkg -i hugo*.deb
     - hugo version
 
-script: hugo -v
+script: hugo --minify -v
 
 after_success:
     - cd public
