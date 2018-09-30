@@ -5,7 +5,7 @@
     <hr>
     <ul>
         {{- range $categoryname, $categoryvaluelist := .Site.Taxonomies.categories }}
-            <a href="categories/{{ $categoryname }}"><h2 id="{{ $categoryname }}">{{ $categoryname }}</h2></a>
+            <a href="/categories/{{ $categoryname }}"><h2 id="{{ $categoryname }}">{{ $categoryname }}</h2></a>
             {{- range $categoryvaluelist.Pages.GroupByDate "2006-01-02" "desc" }}
             {{- range (.Pages.ByParam "amendno").Reverse}}
                 <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
