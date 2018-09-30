@@ -6,14 +6,16 @@
     <ul>
         {{ range .Site.RegularPages.GroupByDate "2006" }}
            <h2 id="{{ .Key }}">{{ .Key }}</h2>
-            {{ range .Pages }}
-                <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
-                    {{- if (index $.Site.Data .Params.amendno).new }}
-                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a></s>
-                    {{- else}}
-                    <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a>
-                    {{- end }} 
-                </li>
+           {{ range .GroupByDate "2006-01-02" }}
+                {{ range (.Pages.ByParam "amendno").Reverse}}
+                    <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
+                        {{- if (index $.Site.Data .Params.amendno).new }}
+                        <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a></s>
+                        {{- else}}
+                        <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a>
+                        {{- end }} 
+                    </li>
+                {{ end }}
             {{ end }}
          {{ end }}
     </ul>

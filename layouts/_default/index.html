@@ -5,7 +5,8 @@
         <h1>{{.Title}}</h1>
         <hr>
         <ul>
-           {{ range .Paginator.Pages }}
+           {{ range .Paginator.Pages.GroupByDate "2006-01-02"}}
+           {{ range (.Pages.ByParam "amendno").Reverse}}
               <li>
                 <h2>{{- if (index .Site.Data .Params.amendno).new }}
                     <s><a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{ .Title }}</a></s>
@@ -29,6 +30,7 @@
                 <hr>
               </li>
             {{- end }}
+            {{- end }}
         </ul>
         <!-- Pagination links -->
         {{- partial "pagination.html" . }}
@@ -44,6 +46,18 @@
                 </div>
                 <ul id="content-side" class="content-ul">
                 {{- range where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -7) }}
+                  {{- if (index .Site.Data .Params.amendno).new }}
+                    <s><li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{.Params.cadno}}</br>{{ .Title }}</a></li></s>
+                    {{- else}}
+                    <li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{ .Title }}</a></li>
+                    {{- end }}
+                {{- end }}
+                </ul>
+                <div>
+                 最近7-30天
+                </div>
+                <ul id="content-side" class="content-ul">
+                {{- range where (where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -30)) "Date" "le" (now.AddDate 0 0 -7) }}
                   {{- if (index .Site.Data .Params.amendno).new }}
                     <s><li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} [{{ .Params.amendno }}]</br>{{.Params.cadno}}</br>{{ .Title }}</a></li></s>
                     {{- else}}

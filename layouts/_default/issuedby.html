@@ -6,7 +6,8 @@
     <ul>
         {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
            <h2 id="{{ $name }}">{{ $name }}</h2>
-            {{ range $key, $value := $taxonomy }}
+            {{- range $key, $value := $taxonomy.Pages.GroupByDate "2006-01-02" "desc" }}
+            {{- range (.Pages.ByParam "amendno").Reverse}}
                 <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
                     {{- if (index $.Site.Data .Params.amendno).new }}
                     <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a></s>
@@ -14,8 +15,9 @@
                     <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] {{ .Title }}</a>
                     {{- end }}
                 </li>
-            {{ end }}
-         {{ end }}
+            {{- end }}
+            {{- end }}
+         {{- end }}
     </ul>
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
