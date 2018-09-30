@@ -4,7 +4,7 @@
        {{- if (index .Site.Data .Params.amendno).new }}
         <s><h2>[{{ .Params.amendno }}] <div style="display:inline-block;text-decoration:line-through">{{ .Params.cadno }}</div></br>{{.Title}}</h2></s>
         {{- else}}
-        <h2>[{{ .Params.amendno }}] <div style="display:inline-block">{{ .Params.cadno }}</div></br></br>{{.Title}}</h2>
+        <h2>[{{ .Params.amendno }}] <div style="display:inline-block">{{ .Params.cadno }}</div></br>{{.Title}}</h2>
         {{- end }}
         <div class="label">
             <div class="label-card"><i class="fa fa-calendar"></i>发布 {{ .Date.Format "2006-01-02" }}</div>
