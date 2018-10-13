@@ -22,3 +22,7 @@
       ga('send', 'pageview');
     </script>
 {{- end }}
+{{- if .Site.Params.busuanzi_tongji_site }}
+<!-- 卜算子统计 -->
+<script async src="https://{{.Site.Params.busuanzi_tongji_site}}/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{{- end }}

@@ -17,11 +17,11 @@ layout: about
 
 ~欢迎使用~
 
-欢迎大家对本站提出建议，网站内容是从局方发布的PDF文档中提取的，如果发现内容有错误的地方，请联系我:<a href="mailto:56649783@qq.com">56649783@qq.com</a>
+欢迎大家对本站提出建议，网站内容是从局方发布的PDF文档中提取的，如果发现内容有错误的地方，请联系我:<a href="mailto:{{% email %}}">{{% email %}}</a>
 或者在项目上提出一个[Issue](https://github.com/mycad/mycad-hugo/issues)。
 
 如果需要整理好的Excel文件,可以通过以下方式获得:  
-* Email: <a href="mailto:56649783@qq.com">56649783@qq.com</a>  
+* Email: <a href="mailto:{{% email %}}">{{% email %}}</a>  
 * GitHub：[mycad-hugo](https://github.com/mycad/mycad-hugo)
 
 # 点赞我

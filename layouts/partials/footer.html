@@ -28,12 +28,12 @@
             <a href=" https://dribbble.com/{{.Site.Params.dribbble_username}}" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a> 
             {{- end }}
         </p>
+        {{- if .Site.Params.busuanzi_tongji_site }}
         <p>
             <div style="display:inline-block">本站总访问量<span id="busuanzi_value_site_pv"></span>次</div>
             <div style="display:inline-block">本站访客数<span id="busuanzi_value_site_uv"></span>人次</div>
             <div style="display:inline-block">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
         </p>
+        {{- end}}
     </div>
 </footer>
-<!-- 卜算子统计 -->
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
