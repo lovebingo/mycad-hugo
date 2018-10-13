@@ -2,7 +2,7 @@
 <div class="page clearfix">
     <div class="left">
     {{- $thistag := lower .Title }}
-    <h1>{{.Title}}</h1>
+    <h1>{{ upper .Title}}</h1>
     <hr>
     <ul>
         {{- range $tagname, $tagvaluelist := .Site.Taxonomies.tags }}{{ if eq $tagname $thistag }}{{ range $tagvaluelist.Pages.GroupByDate "2006-01-02" "desc" }}

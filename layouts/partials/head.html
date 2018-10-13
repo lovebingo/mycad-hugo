@@ -6,7 +6,7 @@
 <title>{{- .Site.Title }}</title>
 {{- else }}
 <meta name="description" content="{{ .Description }}">
-<title>{{- .Title }}</title>
+<title>{{- upper .Title }}</title>
 {{- end }}
 {{- with .RSSLink }}<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ . }}">{{- end }}
 <link rel="shortcut icon" href="/img/favicon.ico?" type="image/x-icon">
