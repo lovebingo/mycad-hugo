@@ -15,8 +15,8 @@
                     {{- end }}
                 </h2>
                 <div class="label">
-                    <div class="label-card"><i class="fa fa-calendar-o"></i>发布 {{ .Date.Format "2006-01-02" }}</div>
-                    <div class="label-card"><i class="fa fa-calendar-check-o"></i>生效 {{ .Params.effdate }}</div>
+                    <div class="label-card"><i class="fa fa-calendar-o"></i>{{ .Date.Format "2006-01-02" }}</div>
+                    <div class="label-card"><i class="fa fa-calendar-check-o"></i>{{ .Params.effdate }}</div>
                     <div class="label-card"><i class="fa fa-plane"></i><a href="tags/{{.Params.tags | lower}}/" rel="tag">{{.Params.tags}}</a></div>
                     <div class="label-card"><i class="fa fa-gavel"></i><a href="categories/{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a></div>
                     <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
@@ -36,11 +36,13 @@
     <div class="right" >
         <div class="wrap">
             <!-- Content -->
+             <div class="side content">
+                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+            </div>
             <div class="side content">
-                <div>最近更新:{{now.Format "2006-01-02"}}</div>
-                <div>{{(now.AddDate 0 0 -30).Format "2006-01-02"}} 至 {{now.Format "2006-01-02"}}</div>
+                <div>30天内新指令</div>
                 <ul id="content-side" class="content-ul">
-                {{- range where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -30) }}
+                {{- range where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -7) }}
                   {{- if (index .Site.Data .Params.amendno).new }}
                     <s><li><a  data-scroll href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }}</br>[{{ .Params.amendno }}]{{.Params.cadno}}</br>{{ .Title }}</a></li></s>
                     {{- else}}

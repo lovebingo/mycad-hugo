@@ -10,7 +10,7 @@
             {{- range (.Pages.ByParam "amendno").Reverse}}
                 <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
                     {{- if (index $.Site.Data .Params.amendno).new }}
-                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] <div style="display:inline-block">{{ .Title }}</div></a></s>
+                    <s><a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] <div style="display:inline-block;text-decoration:line-through">{{ .Title }}</div></a></s>
                     {{- else}}
                     <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}] <div style="display:inline-block">{{ .Title }}</div></a>
                     {{- end }}
@@ -25,7 +25,10 @@
         <div class="wrap">
             <!-- Content -->
             <div class="side content">
-                <div>统计</div>
+                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+            </div>
+            <div class="side content">
+                <div>按单位统计</div>
                 <ul id="content-side" class="content-ul">
                  {{- range $categoryname, $categoryvaluelist := .Site.Taxonomies.categories }}
                         {{- with $.Site.GetPage (printf "/categories/%s" $categoryname) }}
