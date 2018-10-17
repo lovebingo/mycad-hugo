@@ -17,7 +17,12 @@
                 <div class="label">
                     <div class="label-card"><i class="fa fa-calendar-o"></i>{{ .Date.Format "2006-01-02" }}</div>
                     <div class="label-card"><i class="fa fa-calendar-check-o"></i>{{ .Params.effdate }}</div>
-                    <div class="label-card"><i class="fa fa-plane"></i><a href="tags/{{.Params.tags | lower}}/" rel="tag">{{.Params.tags}}</a></div>
+                    {{- range $index,$tag:=.Params.tags}}
+                    <div class="label-card"><i class="fa fa-plane"></i><a href="tags/{{$tag | lower}}/" rel="tag">{{$tag}}</a></div>
+                    {{- end }}
+                    {{- range $index,$pn:=.Params.pns}}
+                    <div class="label-card"><i class="fa fa-cubes"></i><a href="pns/{{$pn | lower}}/" rel="tag">{{$pn}}</a></div>
+                    {{- end }}
                     <div class="label-card"><i class="fa fa-gavel"></i><a href="categories/{{ .Params.categories }}" rel="tag">{{ .Params.categories }}</a></div>
                     <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
                 </div>
