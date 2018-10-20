@@ -17,6 +17,22 @@
             {{- end }}
     {{ end }}
     </ul>
+    <hr>
+    <h1>MULT TO ALL</h1>
+    <hr>
+    <ul>
+        {{- range .Site.Taxonomies.tags.all.Pages.GroupByDate "2006-01-02" "desc" }}
+        {{- range (.Pages.ByParam "amendno").Reverse}}
+            <li><i class="fa fa-calendar"></i>{{ .Date.Format "2006-01-02" }}
+                {{- if (index $.Site.Data .Params.amendno).new }}
+                <a class="title" style="text-decoration:line-through;" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}]<div> {{ .Title }}</div></a>
+                {{- else}}
+                <a class="title" href="{{ .RelPermalink }}">[{{.Params.amendno}}] [{{.Params.cadno}}]<div>{{ .Title }}</div></a>
+                {{- end }}
+           </li>
+        {{- end }}
+     {{- end }}
+    </ul>
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
     <div class="right" >
@@ -28,10 +44,10 @@
             <div class="side content">
                 <div>其他</div>
                 <ul id="content-side" class="content-ul">
-                 {{- range $term, $termlist := .Site.Taxonomies.pns }}
+                 {{- range $term, $termlist := .Site.Taxonomies.acmodels }}
                  {{- $realterm:= replaceRE "[/]|-{2,}" "-" $term  | replaceRE "-$" ""}}
-                 {{- with $.Site.GetPage (printf "/pns/%s" $term) }}{{ if ne $realterm (lower $taxonomyTitle) }}
-                    <li><a  href="/pns/{{ $realterm }}">{{ $realterm | upper}} ({{len $termlist}})</a></li>
+                 {{- with $.Site.GetPage (printf "/acmodels/%s" $term) }}{{ if ne $realterm (lower $taxonomyTitle) }}
+                    <li><a href="/acmodels/{{ $term }}">{{ $term | upper}} ({{len $termlist}})</a></li>
                  {{- end }}{{- end }}{{- end }}
                 </ul>
             </div>

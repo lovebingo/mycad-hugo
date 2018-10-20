@@ -12,26 +12,38 @@ menu:
     url: /acmodel/
     pre: plane
     weight: 1
-  - name: 型号件号
+  - name: 发动机
+    url: /eng/
+    pre: gears
+    weight: 2
+  - name: 件号
     url: /pn/
     pre: cubes
-    weight: 2
-  - name: 颁发单位
-    url: /issuedby/
-    pre: gavel
     weight: 3
+  - name: 颁发单位
+    url: /admin/
+    pre: gavel
+    weight: 4
+  - name: 制造商
+    url: /mfr/
+    pre: wrench
+    weight: 5
   - name: 总清单
     url: /archive/
     pre: archive
-    weight: 4
+    weight: 6
   - name: 关于
     url: /about/
     pre: heart
-    weight: 5
+    weight: 7
 
 taxonomies:
   category: categories
   tag: tags
+  acmodel: acmodels
+  eng: engs
+  admin: admins
+  mfr: mfrs
   pn: pns
   
 params:

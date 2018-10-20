@@ -1,5 +1,5 @@
 {{- define "main" }}
-<div class="page clearfix">
+<div class="page clearfix" index>
     <div class="left">
     <h1>{{.Title}}</h1>
     <hr>
@@ -31,7 +31,7 @@
                 <div>按年统计</div>
                 <ul id="content-side" class="content-ul">
                  {{- range $index, $pagesByYear:=.Site.RegularPages.GroupByDate "2006" }}
-                     <li><a data-scroll href="#{{ .Key }}">{{ .Key }} {{substr  $pagesByYear 5}}</a></li>
+                     <li><a  href="#{{ .Key }}">{{ .Key }} {{substr  $pagesByYear 5}}</a></li>
                  {{- end }}
                 </ul>
             </div>

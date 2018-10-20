@@ -1,0 +1,27 @@
+{{- define "main" }}
+<div class="page clearfix" index>
+    <div class="left">
+    <h1>{{.Title}}</h1>
+    <hr>
+    <ul><li><div class="label">
+     {{- range $adminname, $adminvaluelist := .Site.Taxonomies.admins }}
+        {{- $realurl:= replaceRE "[/]|-{2,}" "-" $adminname  | replaceRE "-$" ""}}
+            {{- with $.Site.GetPage (printf "/admins/%s" $adminname) }}
+                <div class="label-card"><i class="fa fa-gavel"></i><a  href="/admins/{{$realurl}}">{{ $realurl | upper}} ({{len $adminvaluelist}})</a></div>
+            {{- end }}
+     {{- end }}
+     </div></li></ul>
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right" >
+        <div class="wrap">
+            <!-- Content -->
+            <div class="side content">
+                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                <div style="color:red">本站对颁发单位的名称进行了缩写，</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end }}
+

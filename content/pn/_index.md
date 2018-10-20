@@ -1,4 +1,4 @@
 ---
-title: 型号件号
+title: 件号
 layout: pn
 ---

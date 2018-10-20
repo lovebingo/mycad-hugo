@@ -1,4 +1,5 @@
 {{- define "main" }}
+<!-- 没有定义其他文件时,默认使用此文件 -->
 <div class="page clearfix" index>
     <div class="left">
     {{- $taxonomyTitle := replaceRE "[/ ]" "-" .Title | replaceRE "-{2,}" "-" | upper}}
@@ -28,11 +29,6 @@
             <div class="side content">
                 <div>其他</div>
                 <ul id="content-side" class="content-ul">
-                 {{- range $term, $termlist := .Site.Taxonomies.pns }}
-                 {{- $realterm:= replaceRE "[/]|-{2,}" "-" $term  | replaceRE "-$" ""}}
-                 {{- with $.Site.GetPage (printf "/pns/%s" $term) }}{{ if ne $realterm (lower $taxonomyTitle) }}
-                    <li><a  href="/pns/{{ $realterm }}">{{ $realterm | upper}} ({{len $termlist}})</a></li>
-                 {{- end }}{{- end }}{{- end }}
                 </ul>
             </div>
             <!-- 其他div框放到这里 -->

@@ -28,10 +28,10 @@
             <div class="side content">
                 <div>其他</div>
                 <ul id="content-side" class="content-ul">
-                 {{- range $term, $termlist := .Site.Taxonomies.pns }}
+                 {{- range $term, $termlist := .Site.Taxonomies.engs }}
                  {{- $realterm:= replaceRE "[/]|-{2,}" "-" $term  | replaceRE "-$" ""}}
-                 {{- with $.Site.GetPage (printf "/pns/%s" $term) }}{{ if ne $realterm (lower $taxonomyTitle) }}
-                    <li><a  href="/pns/{{ $realterm }}">{{ $realterm | upper}} ({{len $termlist}})</a></li>
+                 {{- with $.Site.GetPage (printf "/engs/%s" $term) }}{{ if ne $realterm (lower $taxonomyTitle) }}
+                    <li><a  href="/engs/{{ $realterm }}">{{ $realterm | upper}} ({{len $termlist}})</a></li>
                  {{- end }}{{- end }}{{- end }}
                 </ul>
             </div>
