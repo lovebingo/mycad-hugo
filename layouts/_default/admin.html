@@ -3,12 +3,17 @@
     <div class="left">
     <h1>{{.Title}}</h1>
     <hr>
-    <ul><li><div class="label">
+    <ul><li>{{- $.Scratch.Set "admingroup" "0"}}
      {{- range $adminname, $adminvaluelist := .Site.Taxonomies.admins }}
         {{- $realurl:= replaceRE "[/]|-{2,}" "-" $adminname  | replaceRE "-$" ""}}
-            {{- with $.Site.GetPage (printf "/admins/%s" $adminname) }}
+         {{- $currentGroup:= substr $adminname 0 2 }}
+         {{- if ne ($.Scratch.Get "admingroup") $currentGroup }}
+               {{- $.Scratch.Set "admingroup" $currentGroup}}
+                </li><li><div class="label">
+                <h4>{{$currentGroup | upper}}</h4>
+                <hr>
+         {{- end}}
                 <div class="label-card"><i class="fa fa-gavel"></i><a  href="/admins/{{$realurl}}">{{ $realurl | upper}} ({{len $adminvaluelist}})</a></div>
-            {{- end }}
      {{- end }}
      </div></li></ul>
     </div>
@@ -17,7 +22,7 @@
         <div class="wrap">
             <!-- Content -->
             <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
                 <div style="color:red">本站对颁发单位的名称进行了缩写，</div>
             </div>
         </div>

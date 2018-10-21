@@ -1,14 +1,18 @@
 {{- define "main" }}
 <div class="page clearfix" index>
     <div class="left">
-    <h1>{{.Title}}</h1>
-    <hr>     
-    <ul><li><div class="label">
+    <h1>{{.Title}}</h1><hr>
+    <ul><li>{{- $.Scratch.Set "pngroup" "0"}}
      {{- range $pnname, $pnvaluelist := .Site.Taxonomies.pns }}
      {{- $realurl:= replaceRE "[/]|-{2,}" "-" $pnname  | replaceRE "-$" ""}}
-            {{- with $.Site.GetPage (printf "/pns/%s" $pnname) }}
+         {{- $currentGroup:= substr $pnname 0 1 }}
+         {{- if ne ($.Scratch.Get "pngroup") $currentGroup }}
+               {{- $.Scratch.Set "pngroup" $currentGroup}}
+                </li><li><div class="label">
+                <h4>{{$currentGroup | upper}}</h4>
+                <hr>
+         {{- end}}
                 <div class="label-card"><i class="fa fa-cubes"></i><a href="/pns/{{$realurl}}">{{$realurl | upper}} </a>({{len $pnvaluelist}})</div>
-            {{- end }}
      {{- end }}
      </div></li></ul>
     </div>
@@ -17,8 +21,8 @@
         <div class="wrap">
             <!-- Content -->
              <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
-                <div style="color:red">件号分类不限于MUTL类的CAD,机型类的CAD中提及的件号也有体现。</div>
+                <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
+                <div style="color:red">MUTL类和机型类的CAD中提及的件号都有体现。</div>
             </div>
         </div>
     </div>

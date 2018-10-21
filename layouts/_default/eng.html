@@ -3,12 +3,17 @@
     <div class="left">
     <h1>{{.Title}}</h1>
     <hr>
-    <ul><li><div class="label">
+    <ul><li>{{- $.Scratch.Set "enggroup" "0"}}
      {{- range $engname, $engvaluelist := .Site.Taxonomies.engs }}
        {{- $realurl:= replaceRE "[/]|-{2,}" "-" $engname  | replaceRE "-$" ""}}
-            {{- with $.Site.GetPage (printf "/engs/%s" $engname) }}
+         {{- $currentGroup:= substr $engname 0 1 }}
+         {{- if ne ($.Scratch.Get "enggroup") $currentGroup }}
+               {{- $.Scratch.Set "enggroup" $currentGroup}}
+                </li><li><div class="label">
+                <h4>{{$currentGroup | upper}}</h4>
+                <hr>
+         {{- end}}
                 <div class="label-card"><i class="fa fa-gears"></i><a href="/engs/{{$realurl}}">{{$realurl | upper}} ({{len $engvaluelist}})</a></div>
-            {{- end }}
      {{- end }}
      </div></li></ul>
     </div>
@@ -17,7 +22,7 @@
         <div class="wrap">
             <!-- Content -->
              <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
                 <div style="color:red">发动机分类不限于MUTL类的CAD,机型类的CAD中提及的发动机也有体现。</div>
             </div>
         </div>

@@ -3,12 +3,17 @@
     <div class="left">
     <h1>{{.Title}}</h1>
     <hr>
-    <ul><li><div class="label">
+    <ul><li>{{- $.Scratch.Set "mfrgroup" "0"}}
      {{- range $mfrname, $mfrvaluelist := .Site.Taxonomies.mfrs }}     
        {{- $realurl:= replaceRE "[/]|-{2,}" "-" $mfrname  | replaceRE "-$" ""}}
-            {{- with $.Site.GetPage (printf "/mfrs/%s" $mfrname) }}
+         {{- $currentGroup:= substr $mfrname 0 1 }}
+         {{- if ne ($.Scratch.Get "mfrgroup") $currentGroup }}
+               {{- $.Scratch.Set "mfrgroup" $currentGroup}}
+                </li><li><div class="label">
+                <h4>{{$currentGroup | upper}}</h4>
+                <hr>
+         {{- end}}
                 <div class="label-card"><i class="fa fa-gears"></i><a href="/mfrs/{{$realurl}}">{{$realurl | upper}} ({{len $mfrvaluelist}})</a></div>
-            {{- end }}
      {{- end }}
      </div></li></ul>
     </div>
@@ -17,7 +22,7 @@
         <div class="wrap">
             <!-- Content -->
              <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
                 <div style="color:red">按触发CAD的源进行统计。</div>
             </div>
         </div>

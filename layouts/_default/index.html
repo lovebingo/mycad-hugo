@@ -51,11 +51,11 @@
     <div class="right" >
         <div class="wrap">
             <!-- Content -->
-             <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
-            </div>
             <div class="side content">
-                <div>30天内新指令</div>
+            <div>
+                 <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+            </div>
+            <div>30天内新指令</div>
                 <ul id="content-side" class="content-ul">
                 {{- range where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -7) }}
                   {{- if (index .Site.Data .Params.amendno).new }}

@@ -1,4 +1,5 @@
 {{- define "main" }}
+<!-- 没有定义其他文件时,默认使用此文件 -->
 <div class="page clearfix" index>
     <div class="left">
     {{- $taxonomyTitle := replaceRE "[/ ]" "-" .Title | replaceRE "-{2,}" "-" | upper}}
@@ -23,7 +24,9 @@
         <div class="wrap">
             <!-- Content -->
              <div class="side content">
-                <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
+                <div>
+                    <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                </div>
                 <div style="color:red">有明确适用机型的MULT类CAD已包括在特定的机型中。</br>无明确适用特定机型的MULT类的CAD需要在MULT TO ALL中查阅。</div>
             </div>
             <!-- 其他div框放到这里 -->

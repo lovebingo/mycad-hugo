@@ -23,17 +23,10 @@
         <div class="wrap">
             <!-- Content -->
              <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
-            </div>
-            <div class="side content">
-                <div>其他</div>
-                <ul id="content-side" class="content-ul">
-                 {{- range $term, $termlist := .Site.Taxonomies.mfrs }}
-                 {{- $realterm:= replaceRE "[/]|-{2,}" "-" $term  | replaceRE "-$" ""}}
-                 {{- with $.Site.GetPage (printf "/mfrs/%s" $term) }}{{ if ne $realterm (lower $taxonomyTitle) }}
-                    <li><a  href="/mfrs/{{ $realterm }}">{{ $realterm | upper}} ({{len $termlist}})</a></li>
-                 {{- end }}{{- end }}{{- end }}
-                </ul>
+                <div>
+                    <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                </div>
+                <div style="color:red">按触发CAD的源进行统计。</div>
             </div>
             <!-- 其他div框放到这里 -->
             <!-- <div class="side">bbbb</div> -->

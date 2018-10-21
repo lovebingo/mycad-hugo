@@ -24,10 +24,10 @@
     <div class="right" >
         <div class="wrap">
             <!-- Content -->
-             <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
-            </div>
             <div class="side content">
+                <div>
+                     <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+                </div>
                 <div>按年统计</div>
                 <ul id="content-side" class="content-ul">
                  {{- range $index, $pagesByYear:=.Site.RegularPages.GroupByDate "2006" }}

@@ -6,13 +6,19 @@
     {{- $allacmodelscount:= .Site.Taxonomies.tags.all.Count}}
     <ul>
     <li><div class="label">
-           <div class="label-card"><i class="fa fa-plane"></i><i class="fa fa-plane"></i><i class="fa fa-plane"></i>MULT TO ALL ({{$allacmodelscount}})</div>
+           <div class="label-card"><i class="fa fa-plane"></i><i class="fa fa-plane"></i><i class="fa fa-plane"></i><a href="/tags/all">MULT TO ALL ({{$allacmodelscount}})</a></div>
     </div></li>
-    <li><div class="label">
+    <li>{{- $.Scratch.Set "acmodelgroup" "0"}}
      {{- range $acmodelname, $acmodelvaluelist := .Site.Taxonomies.acmodels }}
-        {{- with $.Site.GetPage (printf "/acmodels/%s" $acmodelname) }}
-            <div class="label-card"><i class="fa fa-plane"></i><a href="/acmodels/{{$acmodelname}}">{{$acmodelname | upper}} ({{add (len $acmodelvaluelist) $allacmodelscount}})</a></div>
-        {{- end }}
+         {{- $currentGroup:= substr $acmodelname 0 1 }}
+         {{- if ne ($.Scratch.Get "acmodelgroup") $currentGroup }}
+               {{- $.Scratch.Set "acmodelgroup" $currentGroup}}
+                </li><li><div class="label">
+                <h4>{{$currentGroup | upper}}</h4>
+                <hr>
+         {{- end}}
+            <div class="label-card"><i class="fa fa-plane"></i><a href="/acmodels/{{$acmodelname}}">{{$acmodelname | upper}} ({{len $acmodelvaluelist}})</a></div>
+
      {{- end }}
      </div></li>
      </ul>
@@ -22,9 +28,8 @@
         <div class="wrap">
             <!-- Content -->
              <div class="side content">
-                <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
-                <div style="color:red">有明确适用机型的MULT类CAD已包括在特定的机型中。</br>无明确适用特定机型的MULT类的CAD包括在每一个机型中。</br>
-                为防止遗漏,需要对剩余的MULT类CAD做一个回顾。</div>
+                <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
+                <div style="color:red">有明确适用机型的MULT类CAD已包括在特定的机型中。</br>无明确适用特定机型的MULT类的CAD需要在MULT TO ALL中查阅。</div>
             </div>
         </div>
     </div>
