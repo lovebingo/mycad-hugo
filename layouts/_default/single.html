@@ -23,7 +23,7 @@
             {{- end }}
             {{- range $index,$mfr:=.Params.mfrs}}
             {{- $mfr:= replaceRE "[/ ]" "-" $mfr | replaceRE "[()&*]" "" | replaceRE "-{2,}" "-"}}
-            <div class="label-card"><i class="fa fa-wrench"></i><a href="/mfrs/{{$mfr | lower}}/" rel="tag">{{$mfr | upper}}</a></div>
+            <div class="label-card"><i class="fa fa-wrench"></i><a href="/mfrs/{{$mfr | lower}}/" rel="tag">{{$mfr | humanize}}</a></div>
             {{- end }}
             <div class="label-card"><i class="fa fa-gavel"></i><a href="/admins/{{ .Params.admins }}" rel="tag">{{ .Params.admins }}</a></div>
             <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>

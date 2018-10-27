@@ -10,10 +10,10 @@
          {{- if ne ($.Scratch.Get "admingroup") $currentGroup }}
                {{- $.Scratch.Set "admingroup" $currentGroup}}
                 </li><li><div class="label">
-                <h4>{{$currentGroup | upper}}</h4>
+                <h4>{{$currentGroup}}</h4>
                 <hr>
          {{- end}}
-                <div class="label-card"><i class="fa fa-gavel"></i><a  href="/admins/{{$realurl}}">{{ $realurl | upper}} ({{len $adminvaluelist}})</a></div>
+                <div class="label-card"><i class="fa fa-gavel"></i><a  href="/admins/{{$realurl}}">{{ $realurl}} ({{len $adminvaluelist}})</a></div>
      {{- end }}
      </div></li></ul>
     </div>
@@ -23,7 +23,7 @@
             <!-- Content -->
             <div class="side content">
                 <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
-                <div style="color:red">本站对颁发单位的名称进行了缩写，</div>
+                <div style="color:red">本站对颁发单位的名称进行了缩写</div>
             </div>
         </div>
     </div>

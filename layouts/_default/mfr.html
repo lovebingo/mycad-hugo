@@ -10,10 +10,10 @@
          {{- if ne ($.Scratch.Get "mfrgroup") $currentGroup }}
                {{- $.Scratch.Set "mfrgroup" $currentGroup}}
                 </li><li><div class="label">
-                <h4>{{$currentGroup | upper}}</h4>
+                <h4>{{$currentGroup | humanize}}</h4>
                 <hr>
          {{- end}}
-                <div class="label-card"><i class="fa fa-gears"></i><a href="/mfrs/{{$realurl}}">{{$realurl | upper}} ({{len $mfrvaluelist}})</a></div>
+                <div class="label-card"><i class="fa fa-gears"></i><a href="/mfrs/{{$realurl}}">{{$realurl | humanize}} ({{len $mfrvaluelist}})</a></div>
      {{- end }}
      </div></li></ul>
     </div>
@@ -23,7 +23,7 @@
             <!-- Content -->
              <div class="side content">
                 <div><i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span></div>
-                <div style="color:red">按触发CAD的源进行统计。</div>
+                <div style="color:red">CAD中涉及的飞机厂家和部件厂家都有分类</div>
             </div>
         </div>
     </div>

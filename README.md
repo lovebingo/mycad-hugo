@@ -18,9 +18,13 @@ cadno: CAD2008-A332-03R2
 title: 液压绞车钢索的限制/改装
 publishdate: 2018-09-12
 effdate: 2010-01-06
-tags: A332
-categories: 民航中南地区管理局适航审定处
-author: 朱江
+acmodels: ["B767","A320"]  
+tags: ["ALL"]  
+engs: ["PW4000"]  
+pns: ["2156-204"]  
+mfrs: ["Autronics","Boeing"]  
+admins: 民航总局  
+author: 朱江  
 ---
 ```
 
@@ -40,15 +44,11 @@ old:
 ====================================
 通过Travis-CI, 将生成的public目录下的网站内容自动发布到mycad.github.io
 
-
 关于打赏
 ====================================
-
 如果你觉得我做的这个网站还不错，给你的工作带来了便利，可以给我点赞！以激励我做出更好的东西。
 
 ![微信点赞](/static/img/zanshanma.jpg)
 
-
 ## License
-
 [MIT License](https://github.com/mycad/mycad-hugo/blob/master/LICENSE.md)

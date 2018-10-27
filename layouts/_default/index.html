@@ -9,9 +9,9 @@
            {{- range (.Pages.ByParam "amendno").Reverse}}
               <li>
                 <h2>{{- if (index .Site.Data .Params.amendno).new }}
-                    <s><a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{ .Title }}</a></s>
+                    <s><a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }} <div>{{ .Title }}</div></a></s>
                     {{- else}}
-                    <a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }}</br>{{ .Title }}</a>
+                    <a class="post-link" href="{{ .RelPermalink }}">[{{ .Params.amendno }}] {{ .Params.cadno }} <div>{{ .Title }}</div></a>
                     {{- end }}
                 </h2>
                 <div class="label">
@@ -31,7 +31,7 @@
                     {{- end }}
                     {{- range $index,$mfr:=.Params.mfrs}}
                     {{- $mfr:= replaceRE "[/ ]" "-" $mfr | replaceRE "[()&*]" "" | replaceRE "-{2,}" "-"}}
-                    <div class="label-card"><i class="fa fa-wrench"></i><a href="/mfrs/{{$mfr | lower}}/" rel="tag">{{$mfr | upper}}</a></div>
+                    <div class="label-card"><i class="fa fa-wrench"></i><a href="/mfrs/{{$mfr | lower}}/" rel="tag">{{$mfr | humanize}}</a></div>
                     {{- end }}
                     <div class="label-card"><i class="fa fa-gavel"></i><a href="/admins/{{ .Params.admins }}" rel="tag">{{ .Params.admins }}</a></div>
                     <div class="label-card">{{ if .Params.author }}<i class="fa fa-user"></i>{{ .Params.author }}{{ end }}</div>
@@ -55,6 +55,7 @@
             <div>
                  <i class="fa fa-line-chart"></i>阅读 <span id="busuanzi_value_page_pv"></span>
             </div>
+            <div>39-1000--->39-9568</br>发动机,件号,制造商信息待更新,欢迎有空闲时间的朋友帮忙</div>
             <div>30天内新指令</div>
                 <ul id="content-side" class="content-ul">
                 {{- range where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -7) }}
