@@ -47,7 +47,7 @@ taxonomies:
   pn: pns
   
 params:
-    site_description: 本站搜集了CAAC发布的所有cad
+    site_description: 本站所有CAD来自CAAC
     footer_description: 欢迎指出本站的内容错误！
     baidu_tongji_id: 4cc3fd6dcaf01a5a6244f36c72ccace8
     busuanzi_tongji_site: busuanzi.ibruce.info
